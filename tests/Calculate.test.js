@@ -12,6 +12,24 @@ describe("Calculate.js test", () => {
     calculate = new Calculate();
   });
 
+  it("Arguments of add() should be number", () => {
+    expect(() => calculate.add("2", "1")).to.throw(
+      Calculate.messages.INVALID_TYPES
+    );
+  });
+
+  it("Argument of addBy2() should be a number", () => {
+    expect(() => calculate.addBy2("9")).to.throw(
+      Calculate.messages.INVALID_TYPES
+    );
+  });
+
+  it("Arguments of addCb() should be number and a function", () => {
+    expect(() => calculate.addCb("9", "2", true)).to.throw(
+      Calculate.messages.INVALID_TYPES
+    );
+  });
+
   it("Calculate 2 + 5 = 7", () => {
     expect(calculate.add(2, 5)).to.be.equal(7);
   });
