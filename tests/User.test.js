@@ -13,6 +13,17 @@ describe("Auth.js test", () => {
     auth = new Auth();
   });
 
+  it("Register user", () => {
+    const email = "hello@hello.com";
+    const password = "hello";
+
+    expect(auth.register(email, password)).to.be.deep.equal({
+      email,
+      password,
+      message: Auth.messages.REGISTER_SUCCESS,
+    });
+  });
+
   it("Throw error on register() if database not connected", () => {
     const databaseMock = stub(Database.prototype, "isConnect");
     databaseMock.returns(false);
