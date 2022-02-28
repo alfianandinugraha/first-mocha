@@ -1,0 +1,13 @@
+{
+  "name": "mocha-demo-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "dependencies": {
+    "mocha": "^9.2.1"
+  }
+}
