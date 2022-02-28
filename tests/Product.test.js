@@ -1,7 +1,7 @@
 import Product from "../src/Product.js";
 import Database from "../src/Database.js";
 import { expect } from "chai";
-import { mock } from "sinon";
+import { mock, stub } from "sinon";
 
 describe("Product.js test", () => {
   /**
@@ -33,5 +33,12 @@ describe("Product.js test", () => {
     product.find("84719");
 
     expect(isConnectMock.calledOnce).to.be.true;
+  });
+
+  it("Throw error when database is not connected", () => {
+    let databaseStub = stub(database, "isConnect");
+    databaseStub.returns(false);
+
+    expect(() => product.find("2389")).to.throw(Database.messages.NOT_CONNECT);
   });
 });
