@@ -1,6 +1,6 @@
 import Auth from "../src/Auth.js";
 import Database from "../src/Database.js";
-import { stub } from "sinon";
+import { stub, spy } from "sinon";
 import { expect } from "chai";
 import Validator from "../src/Validator.js";
 
@@ -46,5 +46,15 @@ describe("Auth.js test", () => {
     expect(() => auth.register(email, password)).to.throw(
       Validator.messages.INVALID_EMAIL
     );
+  });
+
+  it("Validator.isEmail() called on register()", () => {
+    const email = "hello@hello.com";
+    const password = "hello";
+
+    const validatorSpy = spy(Validator, "isEmail");
+    auth.register(email, password);
+
+    expect(validatorSpy.calledOnce).to.be.true;
   });
 });
