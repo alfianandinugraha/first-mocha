@@ -1,5 +1,5 @@
 {
-  "name": "mocha-demo-test",
+  "name": "first-mocha",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
