@@ -40,4 +40,12 @@ describe("Calculate.js test", () => {
 
     expect(calculateSpy.calledOnceWith(num, 2)).to.be.true;
   });
+
+  it("Spy callback in addCb()", () => {
+    const cbResult = spy();
+
+    calculate.addCb(7, 2, cbResult);
+
+    expect(cbResult.calledOnce).to.be.true;
+  });
 });
