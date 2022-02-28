@@ -11,4 +11,9 @@ describe("Calculate.js test", () => {
     const calculate = new Calculate();
     expect(calculate.add(2, 2)).to.not.equal(5);
   });
+
+  it("Calculate 5 with addBy2", () => {
+    const calculate = new Calculate();
+    expect(calculate.addBy2(5)).to.be.equal(7);
+  });
 });
