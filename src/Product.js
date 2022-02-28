@@ -16,7 +16,7 @@ class Product {
 
   find(id) {
     const isConnect = this.#database.isConnect();
-    if (!isConnect) throw new Error("Database not connected");
+    if (!isConnect) throw new Error(Database.messages.NOT_CONNECT);
 
     return {
       id,
